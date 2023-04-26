@@ -30,7 +30,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Deployment and Configuration Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://user-images.githubusercontent.com/131695869/234705009-cafd6804-148c-49d0-8144-3d841b50f31b.png"/>
 </p>
 <p>
 <h2>Setup Resources in Azure</h2>
@@ -43,7 +43,8 @@ Ensure that both VMs are in the same Vnet (you can check the topology with Netwo
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://user-images.githubusercontent.com/131695869/234705544-0d3cf226-2a4d-4a04-82f7-90b50ea2573e.png"/>
+<img src="https://user-images.githubusercontent.com/131695869/234711616-af2006aa-d6aa-450c-bc99-6836c8c57df9.png"/>
 </p>
 <p>
 <h2>Ensure Connectivity between the client and Domain Controller</h2>
@@ -54,7 +55,7 @@ Check back at Client-1 to see the ping succeed
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/7g0Byol.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <h2>Install Active Directory</h2>
@@ -65,7 +66,8 @@ Restart and then log back into DC-1 as user: mydomain.com\labuser
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://user-images.githubusercontent.com/131695869/234707962-adc793bd-9957-4e77-b387-e66d02f5aaba.png"/>
+<img src="https://user-images.githubusercontent.com/131695869/234709013-f6e3df4d-7ce3-40c1-95ca-9b3bd555fb1a.png"/>
 </p>
 <p>
 <h2>Create an Admin and Normal User Account in AD</h2>
@@ -79,7 +81,8 @@ User jane_admin as your admin account from now on
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://user-images.githubusercontent.com/131695869/234709384-90088cd0-8b52-4a44-9b93-7fb2dfdb59ef.png"/>
+<img src="https://user-images.githubusercontent.com/131695869/234709760-c1a2068b-6c69-40a5-a3cd-54977b002bfc.png"/>
 </p>
 <p>
 <h2>Join Client-1 to your domain (mydomain.com)</h2>
@@ -92,7 +95,7 @@ Create a new OU named “_CLIENTS” and drag Client-1 into there
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://user-images.githubusercontent.com/131695869/234710463-57adf255-35b1-401e-ad85-6bc7fa361b32.png"/>
 </p>
 <p>
 <h2>Setup Remote Desktop for non-administrative users on Client-1</h2>
@@ -105,7 +108,7 @@ Normally you’d want to do this with Group Policy that allows you to change MAN
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://user-images.githubusercontent.com/131695869/234710778-554dced2-b718-4986-b1d4-acb2f818a7ea.png"/>
 </p>
 <p>
 <h2>Create a bunch of additional users and attempt to log into client-1 with one of the users</h2>
