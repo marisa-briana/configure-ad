@@ -5,11 +5,6 @@
 <h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
 This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
 
-
-<h2>Video Demonstration</h2>
-
-- ### [YouTube: How to Deploy on-premises Active Directory within Azure Compute](https://www.youtube.com)
-
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
@@ -68,3 +63,60 @@ Promote as a DC: Setup a new forest as mydomain.com (can be anything, just remem
 Restart and then log back into DC-1 as user: mydomain.com\labuser
 </p>
 <br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<h2>Create an Admin and Normal User Account in AD</h2>
+In Active Directory Users and Computers (ADUC), create an Organizational Unit (OU) called “_EMPLOYEES”
+Create a new OU named “_ADMINS”
+Create a new employee named “Jane Doe” (same password) with the username of “jane_admin”
+Add jane_admin to the “Domain Admins” Security Group
+Log out/close the Remote Desktop connection to DC-1 and log back in as “mydomain.com\jane_admin”
+User jane_admin as your admin account from now on
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<h2>Join Client-1 to your domain (mydomain.com)</h2>
+From the Azure Portal, set Client-1’s DNS settings to the DC’s Private IP address
+From the Azure Portal, restart Client-1
+Login to Client-1 (Remote Desktop) as the original local admin (labuser) and join it to the domain (computer will restart)
+Login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the “Computers” container on the root of the domain
+Create a new OU named “_CLIENTS” and drag Client-1 into there
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<h2>Setup Remote Desktop for non-administrative users on Client-1</h2>
+Log into Client-1 as mydomain.com\jane_admin and open system properties
+Click “Remote Desktop”
+Allow “domain users” access to remote desktop
+You can now log into Client-1 as a normal, non-administrative user now
+Normally you’d want to do this with Group Policy that allows you to change MANY systems at once (maybe a future lab)
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<h2>Create a bunch of additional users and attempt to log into client-1 with one of the users</h2>
+Login to DC-1 as jane_admin
+Open PowerShell_ise as an administrator
+Create a new File and paste the contents of the script into it (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1)
+Run the script and observe the accounts being created
+When finished, open ADUC and observe the accounts in the appropriate OU
+attempt to log into Client-1 with one of the accounts (take note of the password in the script)
+
+Finish.
+</p>
+<br />
+
